@@ -4,7 +4,7 @@ Release:        %autorelease
 Summary:        C++ Parallel Computing and Asynchronous Networking Engine
 License:        Apache-2.0 or GPL-2.0-only
 URL:            https://github.com/sogou/workflow
-Source:         https://github.com/sogou/workflow/archive/v0.10.5/%{name}-%{version}.tar.gz
+Source:         https://github.com/sogou/workflow/archive/v%{version}/%{name}-%{version}.tar.gz
 
 BuildRequires:  gcc-c++
 BuildRequires:  cmake
@@ -37,10 +37,8 @@ developing applications that use %{name}.
 %install
 %cmake_install
 
-%if %{with check}
 %check
 %ctest
-%endif
 
 %files
 %license LICENSE
