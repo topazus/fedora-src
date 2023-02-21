@@ -50,10 +50,10 @@ developing applications that use %{name}.
 
 %files
 %license LICENSE
+%doc README.md
 %{_libdir}/*.so.*
 
 %files devel
-%doc README.md
 %{_includedir}/*
 %{_libdir}/*.so
 %{_libdir}/cmake/%{name}
