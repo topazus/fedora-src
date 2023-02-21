@@ -23,8 +23,7 @@ design which can satisfy most C++ back-end development requirements.}
 Summary:        Development files for %{name}
 Requires:       %{name}%{?_isa} = %{version}-%{release}
 
-%description    devel %{_description}
-
+%description    devel
 The %{name}-devel package contains libraries and header files for
 developing applications that use %{name}.
 
@@ -32,8 +31,7 @@ developing applications that use %{name}.
 Summary:        Development files for %{name}
 Requires:       %{name}-devel%{?_isa} = %{version}-%{release}
 
-%description    static %{_description}
-
+%description    static
 The %{name}-static package contains libraries for
 developing applications that use %{name}.
 
