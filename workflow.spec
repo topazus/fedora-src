@@ -27,6 +27,15 @@ Requires:       %{name}%{?_isa} = %{version}-%{release}
 The %{name}-devel package contains libraries and header files for
 developing applications that use %{name}.
 
+%package        static
+Summary:        Development files for %{name}
+Requires:       %{name}-devel%{?_isa} = %{version}-%{release}
+
+%description    devel %{_description}
+
+The %{name}-static package contains libraries for
+developing applications that use %{name}.
+
 %prep
 %autosetup
 
@@ -43,13 +52,15 @@ developing applications that use %{name}.
 %files
 %license LICENSE
 %{_libdir}/*.so.*
-%{_libdir}/libworkflow.a
 
 %files devel
 %doc README.md
 %{_includedir}/*
 %{_libdir}/*.so
 %{_libdir}/cmake/%{name}
+
+%files static
+%{_libdir}/libworkflow.a
 
 %exclude %{_docdir}/workflow-0.10.5/README.md
 
