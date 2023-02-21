@@ -8,6 +8,7 @@ Source:         https://github.com/sogou/workflow/archive/v%{version}/%{name}-%{
 
 BuildRequires:  gcc-c++
 BuildRequires:  cmake
+BuildRequires:  openssl-devel
 
 %global _description %{expand:
 As Sogou`s C++ server engine, Sogou C++ Workflow supports almost all back-end
