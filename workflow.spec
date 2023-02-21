@@ -32,7 +32,7 @@ developing applications that use %{name}.
 Summary:        Development files for %{name}
 Requires:       %{name}-devel%{?_isa} = %{version}-%{release}
 
-%description    devel %{_description}
+%description    static %{_description}
 
 The %{name}-static package contains libraries for
 developing applications that use %{name}.
