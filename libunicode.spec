@@ -18,12 +18,14 @@ The goal of libunicode library is to bring painless unicode support to C++
 with simple and easy to understand APIs. The API naming conventions are chosen
 to look familiar to those using the C++ standard libary.
 
-%package        static
-Summary:        Static library for %{name}
+%package        devel
+Summary:        Development files for %{name}
+Provides:       %{name}-static%{?_isa} = %{version}-%{release}
 Requires:       %{name}%{?_isa} = %{version}-%{release}
 
-%description    static
-The %{name}-static package contains the static library for %{name}.
+%description    devel
+The %{name}-devel package contains libraries and header files for
+developing applications that use %{name}.
 
 %prep
 #%setup -q -n %{name}-%{libunicode_git_sha} -a0
@@ -49,7 +51,7 @@ popd
 %doc README.md
 %{_bindir}/unicode-query
 
-%files static
+%files devel
 %{_includedir}/unicode/*.h
 %{_libdir}/cmake/%{name}/*.cmake
 /usr/lib64/libunicode*.a
