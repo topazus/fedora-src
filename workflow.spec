@@ -27,7 +27,7 @@ developing applications that use %{name}.
 
 %package        static
 Summary:        Static library for %{name}
-Requires:       %{name}%{?_isa} = %{version}-%{release}
+Requires:       %{name}-devel%{?_isa} = %{version}-%{release}
 
 %description    static
 The %{name}-static package contains the static library for %{name}.
