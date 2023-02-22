@@ -6,7 +6,7 @@ License:        MIT
 URL:            https://github.com/ibireme/yyjson
 Source:         %{url}/archive/%{version}/%{name}-%{version}.tar.gz
 
-BuildRequires:  gcc
+BuildRequires:  gcc-c++
 BuildRequires:  cmake
 
 %description
@@ -36,9 +36,13 @@ developing applications that use %{name}.
 %files
 %license LICENSE
 %doc README.md
+%{_libdir}/lib%{name}.so.%{version}
 
 %files devel
 %{_includedir}/*
+%{_libdir}/lib%{name}.so
+%dir %{_libdir}/cmake/%{name}
+%{_libdir}/cmake/%{name}/*.cmake
 
 %changelog
 %autochangelog
