@@ -6,7 +6,7 @@ Release:        %autorelease
 Summary:        Terminal Benchmarking as CLI and library
 License:        Apache-2.0
 URL:            https://github.com/contour-terminal/termbench-pro
-Source0:        https://github.com/contour-terminal/termbench-pro/archive/%{termbench_pro_git_sha}.tar.gz
+Source0:        %{url}/archive/%{termbench_pro_git_sha}.tar.gz
 
 BuildRequires:  gcc-c++ cmake
 
