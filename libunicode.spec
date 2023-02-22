@@ -7,7 +7,7 @@ Release:        %autorelease
 Summary:        Modern C++17 Unicode library
 License:        Apache-2.0
 URL:            https://github.com/contour-terminal/libunicode
-Source0:        %{url}/archive/%{libunicode_git_sha}/%{name}-%{libunicode_git_sha}.tar.gz
+Source0:        %{url}/archive/%{libunicode_git_sha}.tar.gz
 Source1:        https://www.unicode.org/Public/%{ucd_version}/ucd/UCD.zip
 
 BuildRequires:  gcc-c++ cmake unzip
