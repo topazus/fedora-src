@@ -28,8 +28,7 @@ The %{name}-devel package contains libraries and header files for
 developing applications that use %{name}.
 
 %prep
-#%setup -q -n %{name}-%{libunicode_git_sha} -a0
-%autosetup -p1 -n %{name}-%{libunicode_git_sha}
+%autosetup -n %{name}-%{libunicode_git_sha}
 
 mkdir -p _ucd/ucd-%{ucd_version}
 pushd _ucd/ucd-%{ucd_version}
