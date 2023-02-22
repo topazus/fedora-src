@@ -2,7 +2,7 @@ Name:           yyjson
 Version:        0.6.0
 Release:        %autorelease
 Summary:        A high performance JSON library written in ANSI C
-License:        Apache-2.0
+License:        MIT
 URL:            https://github.com/ibireme/yyjson
 Source:         %{url}/archive/%{version}/%{name}-%{version}.tar.gz
 
