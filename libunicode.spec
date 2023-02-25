@@ -11,7 +11,8 @@ Source0:        %{url}/archive/%{libunicode_git_sha}.tar.gz
 Source1:        https://www.unicode.org/Public/%{ucd_version}/ucd/UCD.zip
 
 BuildRequires:  gcc-c++ cmake unzip
-BuildRequires:  catch-devel range-v3-devel fmt-devel
+BuildRequires:  catch2-devel range-v3-devel fmt-devel
+BuildRequires:  glibc-static libstdc++-static
 
 %description
 The goal of libunicode library is to bring painless unicode support to C++
