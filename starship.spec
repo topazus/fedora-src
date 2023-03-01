@@ -4,14 +4,14 @@
 
 Name:           %{appname}-git
 Version:        %{build_timestamp}
-Release:        1%{?dist}
+Release:        %autorelease
 Summary:        The minimal, blazing-fast, and infinitely customizable prompt for any shell
 License:        ISC
 URL:            https://starship.rs
 Source:         https://github.com/starship/starship/archive/master/%{appname}-master.tar.gz
 
 BuildRequires:  gcc-c++ pkg-config
-BuildRequires:  openssl-devel python3
+BuildRequires:  openssl-devel
 
 %description
 The minimal, blazing-fast, and infinitely customizable prompt for any shell!
