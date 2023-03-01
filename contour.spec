@@ -1,19 +1,23 @@
 %bcond_without qt6
-%global commit 99d6e65ab5ae368be6d951f3f48c725323405978
-%global short_commit %(c=%{commit}; echo ${c:0:7})
 
-Name:           contour
-Version:        20230226.%{short_commit}
+Name:           contour-terminal
+Version:        0.3.11.258
 Release:        %autorelease
 Summary:        Modern C++ Terminal Emulator
 License:        Apache-2.0
 URL:            https://github.com/contour-terminal/contour
-Source0:        %{url}/archive/%{commit}/%{name}-%{commit}.tar.gz
+Source0:        %{url}/archive/v%{version}/%{name}-%{version}.tar.gz
 
 BuildRequires:  gcc-c++ cmake extra-cmake-modules
-BuildRequires:  catch2-devel fmt-devel guidelines-support-library-devel
+BuildRequires:  fmt-devel guidelines-support-library-devel
 BuildRequires:  range-v3-devel yaml-cpp-devel libxcb-devel
-BuildRequires:  fontconfig-devel freetype-devel harfbuzz-devel libunicode-devel
+BuildRequires:  fontconfig-devel freetype-devel harfbuzz-devel 
+BuildRequires:  libunicode-devel
+%if %{?fedora} <= 38
+BuildRequires:  catch-devel
+%else
+BuildRequires:  catch2-devel
+%endif
 
 %if %{with qt6}
 BuildRequires:  qt6-qtbase-devel qt6-qtbase-gui qt6-qtdeclarative-devel
@@ -35,7 +39,7 @@ Contour is a modern and actually fast, modal, virtual terminal emulator,
 for everyday use. It is aiming for power users with a modern feature mindset.
 
 %prep
-%autosetup -n %{name}-%{commit} -p1
+%autosetup
 
 %build
 %cmake \
@@ -53,6 +57,7 @@ rm %{buildroot}%{_datadir}/contour/LICENSE.txt
 rm %{buildroot}%{_datadir}/contour/README.md
 
 %check
+%ctest
 
 %files
 %license LICENSE.txt
