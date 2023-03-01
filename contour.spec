@@ -28,6 +28,7 @@ BuildRequires:  qt5-qtx11extras-devel
 %endif
 
 Requires:       fontconfig freetype harfbuzz yaml-cpp
+Requires:       libunicode
 %if %{with qt6}
 Requires:       qt6-qtbase qt6-qtbase-gui qt6-qtmultimedia
 %else
