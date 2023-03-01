@@ -1,18 +1,22 @@
-%global commit dc246b8a6804d3f265c67d573d484550c38652f9
-%global short_commit %(c=%{commit}; echo ${c:0:7})
 %global ucd_version 15.0.0
 
 Name:           libunicode
-Version:        20230226.%{short_commit}
+Version:        0.3.0
 Release:        %autorelease
 Summary:        Modern C++17 Unicode library
 License:        Apache-2.0
 URL:            https://github.com/contour-terminal/libunicode
-Source0:        %{url}/archive/%{commit}/%{name}-%{commit}.tar.gz
+Source0:        %{url}/archive/v%{version}/%{name}-%{version}.tar.gz
 Source1:        https://www.unicode.org/Public/%{ucd_version}/ucd/UCD.zip
 
 BuildRequires:  gcc-c++ cmake unzip
-BuildRequires:  catch2-devel range-v3-devel fmt-devel
+BuildRequires:  range-v3-devel fmt-devel
+
+%if %{?fedora} <= 38
+BuildRequires:  catch-devel
+%else
+BuildRequires:  catch2-devel
+%endif
 
 %description
 The goal of libunicode library is to bring painless unicode support to C++
@@ -35,7 +39,7 @@ Requires:      %{name}%{?_isa} = %{version}-%{release}
 The %{name}-tools package contains tools about %{name}.
 
 %prep
-%autosetup -n %{name}-%{commit}
+%autosetup
 
 mkdir -p _ucd/ucd-%{ucd_version}
 pushd _ucd/ucd-%{ucd_version}
