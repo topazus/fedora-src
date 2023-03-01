@@ -39,7 +39,7 @@ Contour is a modern and actually fast, modal, virtual terminal emulator,
 for everyday use. It is aiming for power users with a modern feature mindset.
 
 %prep
-%autosetup
+%autosetup -n contour-%{version}
 
 %build
 %cmake \
