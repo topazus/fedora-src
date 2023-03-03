@@ -30,7 +30,7 @@ Powerful yet simple to use screenshot software.
 	--enable-languages=c,c++,fortran \
 	--prefix=/opt/gcc \
 	--enable-checking=release --with-system-zlib \
-	--without-isl --disable-multilib --enable-bootstrap
+	--without-isl --disable-multilib --enable-bootstrap --host=x86_64-pc-linux-gnu
 make bootstrap %{?_smp_mflags}
 
 %install
