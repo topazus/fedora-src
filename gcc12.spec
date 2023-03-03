@@ -10,10 +10,10 @@ License:        GPL
 URL:            http://gcc.gnu.org/
 Source:  	https://ftp.gnu.org/gnu/gcc/gcc-12.2.0/gcc-%{version}.tar.xz
 
-BuildRequires: zlib-devel bison flex
-BuildRequires: gmp-devel mpfr-devel libmpc-devel
-BuildRequires: python3-devel
-BuildRequires: gcc gcc-c++ make
+BuildRequires:  zlib-devel bison flex
+BuildRequires:  gmp-devel mpfr-devel libmpc-devel
+BuildRequires:  python3-devel
+BuildRequires:  gcc gcc-c++ make
 BuildRequires:  git wget
 BuildRequires:  dblatex dejagnu docbook5-style-xsl gcc-gdc
 BuildRequires:  gcc-gnat gdb glibc-static hostname libgnat
@@ -26,7 +26,7 @@ Powerful yet simple to use screenshot software.
 %autosetup -n gcc-%{version}
 
 %build
-%configure \
+./configure \
 	--enable-languages=c,c++,fortran \
 	--prefix=/opt/gcc \
 	--enable-checking=release --with-system-zlib \
