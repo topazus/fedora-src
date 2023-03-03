@@ -8,7 +8,7 @@ Release:        1%{?dist}
 Summary:        GNU Compiler Collection (GCC)
 License:        GPL
 URL:            http://gcc.gnu.org/
-Source:  	https://github.com/gcc-mirror/gcc/archive/refs/tags/releases/gcc-%{version}.tar.gz
+Source:  	https://ftp.gnu.org/gnu/gcc/gcc-12.2.0/gcc-%{version}.tar.xz
 
 BuildRequires: zlib-devel bison flex
 BuildRequires: gmp-devel mpfr-devel libmpc-devel
