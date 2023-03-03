@@ -23,7 +23,7 @@ BuildRequires:  libgphobos-static python3-sphinx sharutils
 Powerful yet simple to use screenshot software.
 
 %prep
-%autosetup
+%autosetup -n gcc-%{version}
 
 %build
 %configure \
