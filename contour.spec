@@ -64,7 +64,7 @@ rm %{buildroot}%{_datadir}/contour/README.md
 %license LICENSE.txt
 %doc README.md
 %{_bindir}/contour
-%{_datadir}/applications/org.contourterminal.Contour.desktop
+%{_datadir}/applications/*.desktop
 %{_datadir}/kservices5/ServiceMenus/*.desktop
 %dir %{_datadir}/contour
 %dir %{_datadir}/contour/shell-integration
@@ -72,8 +72,8 @@ rm %{buildroot}%{_datadir}/contour/README.md
 %{_datadir}/contour/shell-integration/shell-integration.tcsh
 %{_datadir}/contour/shell-integration/shell-integration.zsh
 %{_datadir}/terminfo/c/contour*
-%{_datadir}/icons/hicolor/*/apps/org.contourterminal.Contour.png
-%{_datadir}/metainfo/org.contourterminal.Contour.metainfo.xml
+%{_datadir}/icons/hicolor/*/apps/*.png
+%{_metainfodir}/*.xml
 
 %changelog
 %autochangelog
