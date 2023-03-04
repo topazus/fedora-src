@@ -1,4 +1,4 @@
-%global sover 0.3
+%global sover 0.2
 
 Name:           libunicode
 Version:        0.3.0
@@ -45,7 +45,7 @@ The %{name}-tools package contains tools about %{name}.
 %autosetup
 
 %build
-%cmake
+%cmake -DLIBUNICODE_UCD_DIR=%{_datadir}/unicode/ucd
 %cmake_build
 
 %install
