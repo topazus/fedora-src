@@ -11,7 +11,7 @@ Source0:        %{url}/archive/v%{version}/%{name}-%{version}.tar.gz
 BuildRequires:  gcc-c++ cmake extra-cmake-modules
 BuildRequires:  fmt-devel guidelines-support-library-devel
 BuildRequires:  range-v3-devel yaml-cpp-devel libxcb-devel
-BuildRequires:  fontconfig-devel freetype-devel harfbuzz-devel 
+BuildRequires:  fontconfig-devel freetype-devel harfbuzz-devel
 BuildRequires:  libunicode-devel
 %if %{?fedora} <= 38
 BuildRequires:  catch-devel
@@ -20,11 +20,11 @@ BuildRequires:  catch2-devel
 %endif
 
 %if %{with qt6}
-BuildRequires:  qt6-qtbase-devel qt6-qtbase-gui qt6-qtdeclarative-devel
-BuildRequires:  qt6-qtmultimedia-devel qt6-qtwayland
+BuildRequires:  qt6-qtbase-devel qt6-qtdeclarative-devel
+BuildRequires:  qt6-qtmultimedia-devel
 %else
-BuildRequires:  qt5-qtbase-devel qt5-qtbase-gui qt5-qtmultimedia-devel
-BuildRequires:  qt5-qtx11extras-devel
+BuildRequires:  qt5-qtbase-devel qt5-qtdeclarative-devel
+BuildRequires:  qt5-qtmultimedia-devel
 %endif
 
 Requires:       fontconfig freetype harfbuzz yaml-cpp
@@ -67,6 +67,7 @@ rm %{buildroot}%{_datadir}/contour/README.md
 %{_datadir}/applications/org.contourterminal.Contour.desktop
 %{_datadir}/kservices5/ServiceMenus/*.desktop
 %dir %{_datadir}/contour
+%dir %{_datadir}/contour/shell-integration
 %{_datadir}/contour/shell-integration/shell-integration.fish
 %{_datadir}/contour/shell-integration/shell-integration.tcsh
 %{_datadir}/contour/shell-integration/shell-integration.zsh
