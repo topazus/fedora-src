@@ -58,7 +58,7 @@ popd
 
 %files
 %license LICENSE
-%doc README.md
+%doc README.md Changelog.md
 %{_libdir}/%{name}*.so.*
 
 %files devel
