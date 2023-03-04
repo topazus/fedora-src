@@ -34,9 +34,9 @@ Requires:       %{name}%{?_isa} = %{version}-%{release}
 The %{name}-devel package contains libraries and header files for
 developing applications that use %{name}.
 
-%package tools
-Summary:       Tools for %{name}
-Requires:      %{name}%{?_isa} = %{version}-%{release}
+%package        tools
+Summary:        Tools for %{name}
+Requires:       %{name}%{?_isa} = %{version}-%{release}
 
 %description tools
 The %{name}-tools package contains tools about %{name}.
