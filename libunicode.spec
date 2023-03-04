@@ -1,4 +1,4 @@
-%global ucd_version 15.0.0
+%global sover 0.3
 
 Name:           libunicode
 Version:        0.3.0
@@ -7,10 +7,12 @@ Summary:        Modern C++17 Unicode library
 License:        Apache-2.0
 URL:            https://github.com/contour-terminal/libunicode
 Source0:        %{url}/archive/v%{version}/%{name}-%{version}.tar.gz
-Source1:        https://www.unicode.org/Public/%{ucd_version}/ucd/UCD.zip
+Patch0:         fix-ucd.patch
 
-BuildRequires:  gcc-c++ cmake unzip
-BuildRequires:  range-v3-devel fmt-devel
+BuildRequires:  gcc-c++
+BuildRequires:  cmake
+BuildRequires:  fmt-devel
+BuildRequires:  range-v3-devel
 
 %if %{?fedora} <= 38
 BuildRequires:  catch-devel
@@ -41,11 +43,6 @@ The %{name}-tools package contains tools about %{name}.
 %prep
 %autosetup
 
-mkdir -p _ucd/ucd-%{ucd_version}
-pushd _ucd/ucd-%{ucd_version}
-    unzip %{SOURCE1}
-popd
-
 %build
 %cmake
 %cmake_build
@@ -59,7 +56,7 @@ popd
 %files
 %license LICENSE
 %doc README.md Changelog.md
-%{_libdir}/%{name}*.so.*
+%{_libdir}/%{name}*.so.%{sover}*
 
 %files devel
 %dir %{_includedir}/%{name}
