@@ -13,6 +13,7 @@ BuildRequires:  gcc-c++
 BuildRequires:  cmake
 BuildRequires:  fmt-devel
 BuildRequires:  range-v3-devel
+BuildRequires:  unicode-ucd
 
 %if %{?fedora} <= 38
 BuildRequires:  catch-devel
