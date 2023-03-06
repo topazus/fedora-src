@@ -8,11 +8,21 @@ License:        Apache-2.0
 URL:            https://github.com/contour-terminal/contour
 Source0:        %{url}/archive/v%{version}/%{name}-%{version}.tar.gz
 
-BuildRequires:  gcc-c++ cmake extra-cmake-modules
-BuildRequires:  fmt-devel guidelines-support-library-devel
-BuildRequires:  range-v3-devel yaml-cpp-devel libxcb-devel
-BuildRequires:  fontconfig-devel freetype-devel harfbuzz-devel
+BuildRequires:  gcc-c++
+BuildRequires:  cmake
+BuildRequires:  ninja-build
+BuildRequires:  extra-cmake-modules
+BuildRequires:  fmt-devel
+BuildRequires:  guidelines-support-library-devel
+BuildRequires:  range-v3-devel
+BuildRequires:  yaml-cpp-devel
+BuildRequires:  libxcb-devel
+BuildRequires:  fontconfig-devel
+BuildRequires:  freetype-devel
+BuildRequires:  harfbuzz-devel
 BuildRequires:  libunicode-devel
+BuildRequires:  desktop-file-utils
+BuildRequires:  libappstream-glib
 %if %{?fedora} <= 38
 BuildRequires:  catch-devel
 %else
@@ -20,19 +30,31 @@ BuildRequires:  catch2-devel
 %endif
 
 %if %{with qt6}
-BuildRequires:  qt6-qtbase-devel qt6-qtdeclarative-devel
+BuildRequires:  qt6-qtbase-devel
+BuildRequires:  qt6-qtdeclarative-devel
 BuildRequires:  qt6-qtmultimedia-devel
 %else
-BuildRequires:  qt5-qtbase-devel qt5-qtdeclarative-devel
+BuildRequires:  qt5-qtbase-devel
+BuildRequires:  qt5-qtdeclarative-devel
 BuildRequires:  qt5-qtmultimedia-devel
 %endif
 
-Requires:       fontconfig freetype harfbuzz yaml-cpp
+Requires:       fontconfig
+Requires:       freetype
+Requires:       harfbuzz
+Requires:       yaml-cpp
 Requires:       libunicode
+Requires:       hicolor-icon-theme
+Requires:       kf5-kservice
+Requires:       ncurses
 %if %{with qt6}
-Requires:       qt6-qtbase qt6-qtbase-gui qt6-qtmultimedia
+Requires:       qt6-qtbase
+Requires:       qt6-qtbase-gui
+Requires:       qt6-qtmultimedia
 %else
-Requires:       qt5-qtbase qt5-qtbase-gui qt5-qtmultimedia
+Requires:       qt5-qtbase
+Requires:       qt5-qtbase-gui
+Requires:       qt5-qtmultimedia
 %endif
 
 %description
@@ -43,22 +65,28 @@ for everyday use. It is aiming for power users with a modern feature mindset.
 %autosetup -n contour-%{version}
 
 %build
-%cmake \
+%cmake
+    -GNinja \
 %if %{with qt6}
     -DCONTOUR_BUILD_WITH_QT6=ON
 %else
     -DCONTOUR_BUILD_WITH_QT6=OFF
 %endif
-%cmake_build
+%ninja_build -C %{_vpath_builddir}
 
 %install
-%cmake_install
+%ninja_install -C %{_vpath_builddir}
 
+rm %{buildroot}%{_datadir}/terminfo/c/contour-latest
+ln -s contour %{buildroot}%{_datadir}/terminfo/c/contour-latest
 rm %{buildroot}%{_datadir}/contour/LICENSE.txt
 rm %{buildroot}%{_datadir}/contour/README.md
 
 %check
 %ctest
+
+desktop-file-validate %{buildroot}/%{_datadir}/applications/*.desktop
+appstream-util validate-relax --nonet %{buildroot}%{_metainfodir}/*.metainfo.xml
 
 %files
 %license LICENSE.txt
