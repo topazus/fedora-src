@@ -46,7 +46,8 @@ Requires:       yaml-cpp
 Requires:       libunicode
 Requires:       hicolor-icon-theme
 Requires:       kf5-kservice
-Requires:       ncurses
+Requires:       kf5-filesystem
+Requires:       ncurses-base
 %if %{with qt6}
 Requires:       qt6-qtbase
 Requires:       qt6-qtbase-gui
