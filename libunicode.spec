@@ -7,7 +7,7 @@ Summary:        Modern C++17 Unicode library
 License:        Apache-2.0
 URL:            https://github.com/contour-terminal/libunicode
 Source0:        %{url}/archive/v%{version}/%{name}-%{version}.tar.gz
-Patch0:         fix-ucd.patch
+Patch0:         https://src.fedoraproject.org/rpms/libunicode/raw/rawhide/f/fix-ucd.patch
 
 BuildRequires:  gcc-c++
 BuildRequires:  cmake
