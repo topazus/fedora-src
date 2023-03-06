@@ -65,7 +65,7 @@ for everyday use. It is aiming for power users with a modern feature mindset.
 %autosetup -n contour-%{version}
 
 %build
-%cmake
+%cmake \
     -GNinja \
 %if %{with qt6}
     -DCONTOUR_BUILD_WITH_QT6=ON
