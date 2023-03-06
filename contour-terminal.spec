@@ -6,7 +6,7 @@ Release:        %autorelease
 Summary:        Modern C++ Terminal Emulator
 License:        Apache-2.0
 URL:            https://github.com/contour-terminal/contour
-Source0:        %{url}/archive/v%{version}/%{name}-%{version}.tar.gz
+Source0:        %{url}/archive/v%{version}/contour-%{version}.tar.gz
 
 BuildRequires:  gcc-c++
 BuildRequires:  cmake
