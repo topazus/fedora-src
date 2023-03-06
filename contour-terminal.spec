@@ -84,8 +84,8 @@ rm %{buildroot}%{_datadir}/contour/LICENSE.txt
 rm %{buildroot}%{_datadir}/contour/README.md
 
 %check
-./build/src/crispy/crispy_test
-./build/src/vtbackend/vtbackend_test
+./%{_vpath_builddir}/src/crispy/crispy_test
+./%{_vpath_builddir}/src/vtbackend/vtbackend_test
 
 desktop-file-validate %{buildroot}/%{_datadir}/applications/*.desktop
 appstream-util validate-relax --nonet %{buildroot}%{_metainfodir}/*.metainfo.xml
