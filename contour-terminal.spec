@@ -39,19 +39,13 @@ BuildRequires:  qt5-qtdeclarative-devel
 BuildRequires:  qt5-qtmultimedia-devel
 %endif
 
-Requires:       fontconfig
-Requires:       freetype
-Requires:       harfbuzz
-Requires:       yaml-cpp
 Requires:       libunicode
 Requires:       hicolor-icon-theme
 Requires:       kf5-kservice
 Requires:       kf5-filesystem
 Requires:       ncurses-base
 %if %{with qt6}
-Requires:       qt6-qtbase
-Requires:       qt6-qtbase-gui
-Requires:       qt6-qtmultimedia
+
 %else
 Requires:       qt5-qtbase
 Requires:       qt5-qtbase-gui
