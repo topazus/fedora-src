@@ -8,6 +8,8 @@ License:        Apache-2.0
 URL:            https://github.com/contour-terminal/contour
 Source0:        %{url}/archive/v%{version}/contour-%{version}.tar.gz
 
+ExclusiveArch:  x86_64 aarch64
+
 BuildRequires:  gcc-c++
 BuildRequires:  cmake
 BuildRequires:  ninja-build
