@@ -39,18 +39,10 @@ BuildRequires:  qt5-qtdeclarative-devel
 BuildRequires:  qt5-qtmultimedia-devel
 %endif
 
-Requires:       libunicode
 Requires:       hicolor-icon-theme
 Requires:       kf5-kservice
 Requires:       kf5-filesystem
 Requires:       ncurses-base
-%if %{with qt6}
-
-%else
-Requires:       qt5-qtbase
-Requires:       qt5-qtbase-gui
-Requires:       qt5-qtmultimedia
-%endif
 
 %description
 Contour is a modern and actually fast, modal, virtual terminal emulator,
